@@ -32,9 +32,8 @@ export class StateService {
         break;
         case OperationType.divide:
           if (acc === 0) {
-            const err = 'Division by zero';
-            alert(err);
-            throw new Error(err);
+            acc = 0;
+            break;
           }
           acc = curr / acc;
         break;
