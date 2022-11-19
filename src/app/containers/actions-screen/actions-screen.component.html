@@ -1,0 +1,11 @@
+<div class="input-screen">
+  <div class="numpad">
+    <button
+      *ngFor="let btn of buttons"
+      class="button"
+      [class.hide]="!btn?.label"
+      [disabled]="btn?.isDisabled && btn?.isDisabled()"
+      (click)="btn?.onPress()"
+    >{{btn.label}}</button>
+  </div>
+</div>

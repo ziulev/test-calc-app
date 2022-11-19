@@ -1,0 +1,20 @@
+<div class="display-value">{{stateService.valueSubject | async}}</div>
+<div class="numpad">
+  <ng-container *ngFor="let btn of buttons">
+    <button
+      class="button"
+      [class.hide]="!btn?.label"
+      [disabled]="btn?.isDisabled && btn?.isDisabled()"
+      (click)="btn?.onPress()"
+    >{{btn.label}}</button>
+  </ng-container>
+</div>
+
+<div class="controls">
+  <button
+    class="button"
+    [disabled]="stateService.storedValues.length < 1"
+    (click)="onClickDone()"
+  >Done</button>
+  <button class="button" (click)="stateService.appendNumber()">Next</button>
+</div>
